@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liver Care Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h3>Cirrhosis Disease Prediction</h3>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/form">Predict</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- FORM SECTION -->
+    <div class="form-wrapper">
+        <h2>Enter Patient Data</h2>
+        <form method="POST" action="{{ url_for('predict') }}">
+            {% for col in input_columns %}
+                <label for="{{ col }}">{{ col }}:</label>
+                {% if col in encode_maps %}
+                    <select name="{{ col }}" id="{{ col }}" required>
+                        <option value="" disabled selected>Select {{ col }}</option>
+                        {% for option in encode_maps[col] %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    <input type="number" name="{{ col }}" id="{{ col }}" step="any" required>
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 Cirrhosis Prediction App. All rights reserved.
+    </footer>
+
+    <!-- Script to convert Age in years to days -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const ageInput = document.getElementById('Age');
+            if (ageInput && ageInput.value) {
+                const ageYears = parseFloat(ageInput.value);
+                if (!isNaN(ageYears)) {
+                    ageInput.value = (ageYears * 365).toFixed(0);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

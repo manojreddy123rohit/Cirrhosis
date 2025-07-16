@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Cirrhosis Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+<body>
+    <header>
+        <h3>About This Project</h3>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/form">Predict</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>Why This Project?</h2>
+        <p>
+            Liver cirrhosis is a serious health condition that leads to scarring of the liver
+            and loss of liver function over time. Early diagnosis is crucial.
+        </p>
+        <p>
+            This project uses machine learning techniques to predict the likelihood of cirrhosis
+            based on patient data. Our model was trained using clinical data, and the prediction
+            interface is built using Flask and TensorFlow.
+        </p>
+        <p>
+            The goal is to assist healthcare professionals and individuals with a quick,
+            data-driven risk assessment.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2025 Cirrhosis Prediction App. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h3>Cirrhosis Disease Prediction</h3>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/form">Predict</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- RESULT CONTAINER -->
+    <div class="result-container">
+        <h2>Prediction Result</h2>
+        <p><strong>Predicted:</strong> {{ 'Yes' if prediction == 1 else 'No' }}</p>
+        <p><strong>Interpretation:</strong> {{ interpretation.replace('(Stage 0)', '').replace('(Stage 1)', '') }}</p>
+        <a class="button-link" href="/form">🔁 Predict Again</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 Cirrhosis Prediction App. All rights reserved.
+    </footer>
+
+</body>
+</html>
